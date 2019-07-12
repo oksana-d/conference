@@ -17,4 +17,8 @@ $(document).ready(function () {
         });
     }
         initMap();
+    $('#datepicker').datepicker({
+        endDate: "0d",
+        autoclose: true,
+    });
 });

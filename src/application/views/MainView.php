@@ -27,7 +27,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="birthday">Birthday <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="birthday">
+                                <input type="text" class="form-control" name="birthday" id="datepicker">
                             </div>
                         </div>
                     </div>
