@@ -2,3 +2,20 @@
     height: 450px;
     width: 100%;
 }
+.card{
+    border: #BCE8F1;
+    margin: 35px auto;
+}
+div.card-header{
+    background-color: #E0F2F7;
+    padding: 10px 20px;
+}
+p.font-weight-bold{
+    color: #31708f;
+    margin: 0px;
+    font-size: 15px;
+}
+label{
+    font-size: 15px;
+    font-weight: 700;
+}
