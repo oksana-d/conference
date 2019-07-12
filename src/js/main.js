@@ -21,4 +21,12 @@ $(document).ready(function () {
         endDate: "0d",
         autoclose: true,
     });
+    var country = 'CA';
+    $('#phone-number').mask(phoneMask[country]);
+    $.mask.definitions['*'] = "[0-9]";
+    $('body').on('change', '#country', function () {
+        //console.log($('#country option:selected').val());
+        var country = $('#country option:selected').val();
+        $('#phone-number').mask(phoneMask[country]);
+    });
 });
