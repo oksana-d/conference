@@ -6,6 +6,7 @@
             </div>
             <div class="card-body">
                 <div id="filling-form">
+                <?php if (!isset($_COOKIE['idUser'])): ?>
                 <form id="first-form">
                     <div class="row">
                         <div class="col">
@@ -294,6 +295,49 @@
                         </div>
                     </div>
                 </form>
+                <?php endif; ?>
+                <?php if (isset($_COOKIE['idUser'])): ?>
+                    <form id="second-form">
+                        <div class="row">
+                            <div class="col">
+                                <a href="#" class="float-right">All members (<?= $countUser['total'] ?>)</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input type="text" maxlength="50" class="form-control" name="company">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="position">Position</label>
+                                    <input type="text" maxlength="50" class="form-control" name="position">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="photo">Photo</label>
+                                    <input type="file" name="photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="aboutMe">About me</label>
+                                    <textarea class="form-control" maxlength="255" name="aboutMe" rows="6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success float-right">Finish</button>
+                            </div>
+                        </div>
+                    </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
