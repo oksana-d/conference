@@ -8,7 +8,7 @@
                 <form id="first-form">
                     <div class="row">
                         <div class="col">
-                            <a href="#" class="float-right" style="margin-right: 20px">All members ()</a>
+                            <a href="#" class="float-right" style="margin-right: 20px">All members (<?= $countUser['total'] ?>)</a>
                         </div>
                     </div>
                     <div class="row">
