@@ -25,4 +25,14 @@ class ControllerMain extends Controller
             }
         }
     }
+
+    public function saveUserInfoAction()
+    {
+        if ($_POST) {
+            $this->model = new ModelMain();
+            if ($id = $this->model->saveUserInfo($_POST)) {
+
+            }
+        }
+    }
 }

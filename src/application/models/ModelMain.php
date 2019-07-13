@@ -20,4 +20,17 @@ class ModelMain extends Model
 
         return $executeQuery['total'] > 0 ? true : false;
     }
+
+    public function saveUserInfo($data)
+    {
+        $conn = Database::connect();
+        $executeQuery = $conn->query("
+            INSERT INTO user (firstname, lastname, birthday, reportSubject, country, phone, email)
+            VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [$data['firstname'], $data['lastname'], date('Y-m-d', strtotime($data['birthday'])), $data['reportSubject'], $data['country'], $data['phone'], $data['email']]);
+
+        if ($executeQuery) {
+            return $conn->lastInsertId();
+        } else return false;
+    }
 }
