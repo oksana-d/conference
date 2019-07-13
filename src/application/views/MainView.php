@@ -8,7 +8,7 @@
                 <form id="first-form">
                     <div class="row">
                         <div class="col">
-                            <a href="#" class="float-right" style="margin-right: 20px">All members (<?= $countUser['total'] ?>)</a>
+                            <a href="#" class="float-right">All members (<?= $countUser['total'] ?>)</a>
                         </div>
                     </div>
                     <div class="row">
@@ -27,7 +27,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="birthday">Birthday <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="birthday" id="datepicker">
+                                <input type="text" class="form-control" name="birthday" id="datepicker" readonly="readonly">
                             </div>
                         </div>
                     </div>

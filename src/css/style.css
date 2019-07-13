@@ -19,3 +19,16 @@ label{
     font-size: 15px;
     font-weight: 700;
 }
+input.form-control.error{
+    border: 1px solid #dc3545;
+}
+select#country.form-control.error{
+    border: 1px solid #dc3545;
+}
+label.error{
+    font-weight: normal;
+    color: #B40404;
+}
+input#datepicker.form-control{
+    background-color: white;
+}
