@@ -41,6 +41,7 @@ class ControllerMain extends Controller
     public function updateUserInfoAction()
     {
         if ($_POST) {
+            $config = require __DIR__ . '/../share_config.php';
             $this->model = new ModelMain();
             $target = null;
 
@@ -51,7 +52,11 @@ class ControllerMain extends Controller
             }
 
             if ($this->model->updateUserInfo($_POST, $target)) {
-
+                unset($_COOKIE['idUser']);
+                setcookie('idUser', null, -1, '/');
+                $this->view->ajaxGenerate('SocialNetworks.php', [
+                    'countUser' => $this->model->getCountUser()[0],
+                    'config' => $config['share']]);
             }
         }
     }

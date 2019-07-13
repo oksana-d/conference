@@ -32,3 +32,10 @@ label.error{
 input#datepicker.form-control{
     background-color: white;
 }
+img{
+    height: 70px;
+    width: 73px;
+}
+.share{
+    justify-content: center;
+}
