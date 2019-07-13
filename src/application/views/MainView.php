@@ -9,11 +9,6 @@
                 <?php if (!isset($_COOKIE['idUser'])): ?>
                 <form id="first-form">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="float-right">All members (<?= $countUser['total'] ?>)</a>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="firstname">First name <span class="text-danger">*</span></label>
@@ -299,24 +294,19 @@
                 <?php if (isset($_COOKIE['idUser'])): ?>
                     <form id="second-form">
                         <div class="row">
-                            <div class="col">
-                                <a href="#" class="float-right">All members (<?= $countUser['total'] ?>)</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6 col-xl-4">
                                 <div class="form-group">
                                     <label for="company">Company</label>
                                     <input type="text" maxlength="50" class="form-control" name="company">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6 col-xl-4">
                                 <div class="form-group">
                                     <label for="position">Position</label>
                                     <input type="text" maxlength="50" class="form-control" name="position">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xl-4">
                                 <div class="form-group">
                                     <label for="photo">Photo</label>
                                     <input type="file" name="photo">
