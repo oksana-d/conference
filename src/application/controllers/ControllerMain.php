@@ -31,8 +31,27 @@ class ControllerMain extends Controller
         if ($_POST) {
             $this->model = new ModelMain();
             if ($id = $this->model->saveUserInfo($_POST)) {
+                setcookie("idUser", $id,0, '/');
                 $this->view->ajaxGenerate('Profile.php',[
                     'countUser' => $this->model->getCountUser()[0]]);
+            }
+        }
+    }
+
+    public function updateUserInfoAction()
+    {
+        if ($_POST) {
+            $this->model = new ModelMain();
+            $target = null;
+
+            if (isset($_FILES['photo']['name'])&& !empty($_FILES['photo']['name'])){
+                $imageName = $_FILES['photo']['name'];
+                $target = 'src/img/users/'.$imageName;
+                move_uploaded_file($_FILES['photo']['tmp_name'], $target);
+            }
+
+            if ($this->model->updateUserInfo($_POST, $target)) {
+
             }
         }
     }

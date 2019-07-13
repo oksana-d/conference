@@ -77,7 +77,34 @@ $(document).ready(function () {
                 type: 'post',
                 enctype: 'multipart/form-data',
                 success: function (data) {
-                    $('#first-form').replaceWith(data);
+                    $('#filling-form').html(data);
+                }
+            });
+        }
+    });
+
+    $('#second-form').validate({
+        rules: {
+            photo: {
+                extension: "png|jpe?g|gif"
+            }
+        },
+        messages: {
+            photo: {
+                extension: 'Only files .jpg, .png, .gif allowed.'
+            }
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                url        : '/main/updateUserInfo',
+                type       : 'post',
+                dataType: 'text',
+                data       : new FormData(form),
+                enctype: 'multipart/form-data',
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
                 }
             });
         }

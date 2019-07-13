@@ -33,4 +33,19 @@ class ModelMain extends Model
             return $conn->lastInsertId();
         } else return false;
     }
+
+    public function updateUserInfo($data, $img = null)
+    {
+        $conn = Database::connect();
+        if (isset($_COOKIE['idUser'])) {
+            $executeQuery = $conn->query("
+              INSERT INTO profile (idUser, company, position, aboutMe, photo)
+              VALUES (?, ?, ?, ?, ?)
+            ", [$_COOKIE['idUser'], $data['company'], $data['position'], $data['aboutMe'], $img]);
+
+            if ($executeQuery) {
+                return true;
+            } else return false;
+        }
+    }
 }
