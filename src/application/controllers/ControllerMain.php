@@ -31,7 +31,8 @@ class ControllerMain extends Controller
         if ($_POST) {
             $this->model = new ModelMain();
             if ($id = $this->model->saveUserInfo($_POST)) {
-
+                $this->view->ajaxGenerate('Profile.php',[
+                    'countUser' => $this->model->getCountUser()[0]]);
             }
         }
     }

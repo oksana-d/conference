@@ -77,7 +77,7 @@ $(document).ready(function () {
                 type: 'post',
                 enctype: 'multipart/form-data',
                 success: function (data) {
-                    console.log(data);
+                    $('#first-form').replaceWith(data);
                 }
             });
         }
