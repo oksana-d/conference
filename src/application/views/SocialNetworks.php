@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <a href="#" class="float-right">All members (<?= $countUser['total'] ?>)</a>
+        <a href="/participants" class="float-right">All members (<?= $countUser['total'] ?>)</a>
     </div>
 </div>
 <div class="row share">

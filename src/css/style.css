@@ -39,3 +39,12 @@ img{
 .share{
     justify-content: center;
 }
+.profile-img {
+    max-height: 100px;
+}
+h1{
+    justify-content: center;
+}
+.table.table.table-striped.table-responsive{
+    text-align: center;
+}
