@@ -42,6 +42,14 @@ input#datepicker.form-control{
 .profile-img {
     max-height: 100px;
 }
+h1.text-center{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a.members.btn.btn-success.float-right{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 h1{
     justify-content: center;
 }

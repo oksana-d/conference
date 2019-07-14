@@ -38,7 +38,7 @@
     <?php endif; ?>
     <div class="row">
         <div class="col">
-            <a href="/" class="btn btn-success float-right">Back to homepage</a>
+            <a href="/" class="members btn btn-success float-right">Back to homepage</a>
         </div>
     </div>
 </div>
