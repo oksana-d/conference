@@ -32,7 +32,7 @@ label.error{
 input#datepicker.form-control{
     background-color: white;
 }
-img{
+.share img{
     height: 70px;
     width: 73px;
 }
@@ -45,6 +45,48 @@ img{
 h1{
     justify-content: center;
 }
-.table.table.table-striped.table-responsive{
+.notfound{
+    padding: 50px;
+    margin: auto;
+    justify-content: center;
     text-align: center;
+}
+.notfound img{
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+}
+ h2 {
+    font-family: 'Titillium Web', sans-serif;
+     color: #31708f;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+.notfound p {
+    font-family: 'Montserrat', sans-serif;
+    color: #31708f;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+}
+.notfound a {
+    font-family: 'Titillium Web', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #28a745;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    border-radius: .25rem;
+}
+.notfound a:hover {
+    background: #218838;
+    color: #fff;
 }
