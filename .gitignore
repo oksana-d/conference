@@ -1,2 +1,4 @@
 .idea
 /vendor
+database_config.php
+share_config.php
