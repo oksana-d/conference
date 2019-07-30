@@ -11,11 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Дамп структуры базы данных conference
-CREATE DATABASE IF NOT EXISTS `conference` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `conference`;
-
 -- Дамп структуры для таблица conference.profile
 CREATE TABLE IF NOT EXISTS `profile` (
   `idProfile` int(11) NOT NULL AUTO_INCREMENT,
