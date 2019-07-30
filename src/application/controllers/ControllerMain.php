@@ -48,7 +48,9 @@ class ControllerMain extends Controller
             if (isset($_FILES['photo']['name'])&& !empty($_FILES['photo']['name'])){
                 $imageName = $_FILES['photo']['name'];
                 $target = 'src/img/users/'.$imageName;
-                $folder = new Folder('src/img/users/', true);
+                if(!is_dir('src/img/users/')){
+                    mkdir('src/img/users/');
+                }
                 move_uploaded_file($_FILES['photo']['tmp_name'], $target);
             }
 
