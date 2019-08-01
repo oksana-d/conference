@@ -279,7 +279,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="reportSubject">Report subject <span class="text-danger">*</span></label>
-                                <input type="text" maxlength="255" class="form-control" name="reportSubject">
+                                <input type="text" maxlength="250" class="form-control" name="reportSubject">
                             </div>
                         </div>
                     </div>
