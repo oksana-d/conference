@@ -1,4 +1,5 @@
 <?php
-namespace src\application\core;
+namespace src\application;
+use src\application\core\Route;
 
 Route::start();

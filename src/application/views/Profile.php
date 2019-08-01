@@ -23,7 +23,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="aboutMe">About me</label>
-                <textarea class="form-control" maxlength="255" name="aboutMe" rows="6"></textarea>
+                <textarea class="form-control" maxlength="250" name="aboutMe" rows="6"></textarea>
             </div>
         </div>
     </div>

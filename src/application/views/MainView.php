@@ -12,13 +12,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="firstname">First name <span class="text-danger">*</span></label>
-                                <input type="text"  class="form-control" name="firstname">
+                                <input type="text" maxlength="50" class="form-control" name="firstname">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="lastname">Last name <span class="text-danger">*</span></label>
-                                <input type="text" maxlength="40" class="form-control" name="lastname">
+                                <input type="text" maxlength="50" class="form-control" name="lastname">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -279,7 +279,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="reportSubject">Report subject <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="reportSubject">
+                                <input type="text" maxlength="255" class="form-control" name="reportSubject">
                             </div>
                         </div>
                     </div>
