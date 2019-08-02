@@ -110,4 +110,18 @@ $(document).ready(function () {
             });
         }
     });
+
+    function  validate() {
+        $('body').on('change', '#photo', function () {
+
+            if (this.files[0].size > 2000000) {
+                $("#photo-size-error").html("File must be less than 2 mb.");
+                $('#submit').prop('disabled', true);
+            } else {
+                $('#submit').prop('disabled', false);
+                $("#photo-size-error").empty();
+            }
+        });
+    }
+    validate();
 });
