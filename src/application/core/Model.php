@@ -2,10 +2,13 @@
 
 namespace src\application\core;
 
-class Model
+abstract class Model
 {
-    public function getData()
-    {
+    protected $conn;
 
+    public function __construct()
+    {
+        $this->conn = Database::connect();
     }
+
 }

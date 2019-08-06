@@ -44,15 +44,15 @@ class ControllerMain extends Controller
     public function updateUserInfoAction()
     {
         if ( ! empty(filter_input_array(INPUT_POST))) {
-            $config = require __DIR__ . '/../share_config.php';
+            $config = require __DIR__ . '/../config/share_config.php';
             $this->model = new ModelMain();
             $target = null;
 
             if (isset($_FILES['photo']['name']) && ! empty($_FILES['photo']['name'])) {
                 $imageName = $_FILES['photo']['name'];
-                $target = 'src/img/users/' . $imageName;
-                if ( ! is_dir('src/img/users/')) {
-                    mkdir('src/img/users/');
+                $target = 'public/img/users/' . $imageName;
+                if ( ! is_dir('public/img/users/')) {
+                    mkdir('public/img/users/');
                 }
                 move_uploaded_file($_FILES['photo']['tmp_name'], $target);
             }
