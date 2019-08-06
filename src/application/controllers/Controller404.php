@@ -1,4 +1,5 @@
 <?php
+
 namespace src\application\controllers;
 
 use src\application\core\Controller;

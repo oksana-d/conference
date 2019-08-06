@@ -1,4 +1,5 @@
 <?php
+
 namespace src\application\controllers;
 
 use src\application\core\Controller;
@@ -11,7 +12,8 @@ class ControllerParticipants extends Controller
     {
         $this->model = new ModelParticipants();
         $this->view->generate('ParticipantsView.php', 'TemplateView.php', [
-            'users' => $this->model->getAllUsers()]);
+            'users' => $this->model->getAllUsers(),
+        ]);
     }
 
 }
