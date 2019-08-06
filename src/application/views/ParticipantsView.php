@@ -23,7 +23,7 @@
                             <tr>
                                 <td scope="row"><?= ++$key ?></td>
                                 <td>
-                                    <img class="img rounded-circle profile-img" src="<?= !empty($user['photo']) ? $user['photo'] : '../src/img/no-image.png' ?>" alt="user_photo">
+                                    <img class="img rounded-circle profile-img" src="<?= !empty($user['photo']) ? $user['photo'] : '/public/img/no-image.png' ?>" alt="user_photo">
                                 </td>
                                 <td><?= $user['firstname'] ?> <?= $user['lastname'] ?></td>
                                 <td><?= $user['reportSubject'] ?></td>

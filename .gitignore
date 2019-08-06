@@ -2,3 +2,4 @@
 /vendor
 database_config.php
 share_config.php
+/public/img/users
