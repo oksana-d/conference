@@ -12,5 +12,5 @@ abstract class Controller
         $this->view = new View();
     }
 
-    public abstract function indexAction();
+    abstract public function indexAction();
 }

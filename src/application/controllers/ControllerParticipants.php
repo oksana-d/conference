@@ -17,5 +17,4 @@ class ControllerParticipants extends Controller
             'users' => $this->model->getAllUsers(),
         ]);
     }
-
 }

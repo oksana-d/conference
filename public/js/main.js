@@ -1,4 +1,4 @@
-$(document).ready(function () {
+(function () {
   function initMap () {
     const opt = {
       center: { lat: 34.101511, lng: -118.343705 },
@@ -120,4 +120,4 @@ $(document).ready(function () {
   }
 
   validate()
-})
+})()

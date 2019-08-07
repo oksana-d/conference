@@ -10,34 +10,34 @@ class Route
         $actionName = 'index';
         $routes = explode('/', filter_input(INPUT_SERVER, 'REQUEST_URI'));
 
-        if ( ! empty($routes[1])) {
+        if (! empty($routes[1])) {
             $controllerName = $routes[1];
         }
 
-        if ( ! empty($routes[2])) {
+        if (! empty($routes[2])) {
             $actionName = $routes[2];
         }
 
-        $modelName = 'Model' . ucfirst($controllerName);
-        $controllerName = 'Controller' . ucfirst($controllerName);
-        $actionName = $actionName . 'Action';
-        $modelFile = $modelName . '.php';
-        $modelPath = "src/application/models/" . $modelFile;
+        $modelName = 'Model'.ucfirst($controllerName);
+        $controllerName = 'Controller'.ucfirst($controllerName);
+        $actionName = $actionName.'Action';
+        $modelFile = $modelName.'.php';
+        $modelPath = "src/application/models/".$modelFile;
 
         if (file_exists($modelPath)) {
-            include "src/application/models/" . $modelFile;
+            include "src/application/models/".$modelFile;
         }
 
-        $controllerFile = $controllerName . '.php';
-        $controllerPath = "src/application/controllers/" . $controllerFile;
+        $controllerFile = $controllerName.'.php';
+        $controllerPath = "src/application/controllers/".$controllerFile;
 
         if (file_exists($controllerPath)) {
-            include "src/application/controllers/" . $controllerFile;
+            include "src/application/controllers/".$controllerFile;
         } else {
             Route::errorPage();
         }
 
-        $controllerName = "src\application\controllers\\" . ucfirst($controllerName);
+        $controllerName = "src\application\controllers\\".ucfirst($controllerName);
         $controller = new $controllerName;
         $action = $actionName;
 
@@ -50,9 +50,9 @@ class Route
 
     public static function errorPage()
     {
-        $host = 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST') . '/';
+        $host = 'http://'.filter_input(INPUT_SERVER, 'HTTP_HOST').'/';
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
-        header('Location:' . $host . '404');
+        header('Location:'.$host.'404');
     }
 }

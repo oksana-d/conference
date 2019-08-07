@@ -38,7 +38,7 @@ class ControllerMain extends Controller
      */
     public function saveUserInfoAction()
     {
-        if ( ! empty(filter_input_array(INPUT_POST))) {
+        if (! empty(filter_input_array(INPUT_POST))) {
             $this->model = new ModelMain();
             if ($idUser = $this->model->saveUserInfo(filter_input_array(INPUT_POST))) {
                 setcookie("idUser", $idUser, 0, '/');
@@ -54,15 +54,15 @@ class ControllerMain extends Controller
      */
     public function updateUserInfoAction()
     {
-        if ( ! empty(filter_input_array(INPUT_POST))) {
-            $config = require __DIR__ . '/../../config/share_config.php';
+        if (! empty(filter_input_array(INPUT_POST))) {
+            $config = require __DIR__.'/../../config/share_config.php';
             $this->model = new ModelMain();
             $target = null;
 
             if (isset($_FILES['photo']['name']) && ! empty($_FILES['photo']['name'])) {
                 $imageName = $_FILES['photo']['name'];
-                $target = 'public/img/users/' . $imageName;
-                if ( ! is_dir('public/img/users/')) {
+                $target = 'public/img/users/'.$imageName;
+                if (! is_dir('public/img/users/')) {
                     mkdir('public/img/users/');
                 }
                 move_uploaded_file($_FILES['photo']['tmp_name'], $target);

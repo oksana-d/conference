@@ -20,7 +20,7 @@ class ModelMain extends Model
     /**
      * Check if a user is registered with this email
      *
-     * @param string $email Role of user email
+     * @param  string  $email  Role of user email
      *
      * @return boolean
      */
@@ -34,13 +34,14 @@ class ModelMain extends Model
     /**
      * Save user information from the first form
      *
-     * @param array $data
+     * @param  array  $data
      *
      * @return bool|string
      */
     public function saveUserInfo($data)
     {
-        $executeQuery = $this->conn->query("
+        $executeQuery = $this->conn->query(
+            "
             INSERT INTO user (firstname, lastname, birthday, reportSubject, country, phone, email)
             VALUES (?, ?, ?, ?, ?, ?, ?)",
             [
@@ -51,7 +52,8 @@ class ModelMain extends Model
                 $data['country'],
                 $data['phone'],
                 $data['email'],
-            ]);
+            ]
+        );
 
         if ($executeQuery) {
             return $this->conn->lastInsertId();
@@ -63,14 +65,14 @@ class ModelMain extends Model
     /**
      * Update user information from the second form
      *
-     * @param array $data
-     * @param string $img
+     * @param  array  $data
+     * @param  string  $img
      *
      * @return bool
      */
     public function updateUserInfo($data, $img = null)
     {
-        if ( ! empty(filter_input_array(INPUT_COOKIE)['idUser'])) {
+        if (! empty(filter_input_array(INPUT_COOKIE)['idUser'])) {
             $executeQuery = $this->conn->query("
               INSERT INTO profile (idUser, company, position, aboutMe, photo)
               VALUES (?, ?, ?, ?, ?)
@@ -84,9 +86,9 @@ class ModelMain extends Model
 
             if ($executeQuery) {
                 return true;
-            } else {
-                return false;
             }
         }
+
+        return false;
     }
 }

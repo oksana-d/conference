@@ -13,9 +13,10 @@ class Database
 
     private function __construct()
     {
-        $config = require __DIR__ . '/../../config/database_config.php';
+        $config = require __DIR__.'/../../config/database_config.php';
 
-        $this->pdo = new PDO('mysql:dbname=' . $config['name'] . ';host=' . $config['host'] . ';port=' . $config['port'] . ';charset=utf8',
+        $this->pdo = new PDO(
+            'mysql:dbname='.$config['name'].';host='.$config['host'].';port='.$config['port'].';charset=utf8',
             $config['user'],
             $config['password'],
             array(
@@ -32,9 +33,9 @@ class Database
     /**
      * Parse and execution call the query
      *
-     * @param string $query Role of query text from model
-     * @param array $params Role of query parameter from model
-     * @param int $fetchmMode
+     * @param  string  $query  Role of query text from model
+     * @param  array  $params  Role of query parameter from model
+     * @param  int  $fetchmMode
      *
      * @return array|int|null
      */
@@ -59,19 +60,19 @@ class Database
     /**
      * Execute the query
      *
-     * @param string $query Role of query text
-     * @param array $parameters Role of query parameter
+     * @param  string  $query  Role of query text
+     * @param  array  $parameters  Role of query parameter
      */
     private function init($query, $parameters)
     {
-        if ( ! $this->bConnected) {
+        if (! $this->bConnected) {
             $this->Connect();
         }
 
         $this->parameters = $parameters;
         $this->sQuery = $this->pdo->prepare($this->buildParams($query, $this->parameters));
 
-        if ( ! empty($this->parameters)) {
+        if (! empty($this->parameters)) {
             if (array_key_exists(0, $parameters)) {
                 $parametersType = true;
                 array_unshift($this->parameters, "");
@@ -80,7 +81,7 @@ class Database
                 $parametersType = false;
             }
             foreach (array_keys($this->parameters) as $column) {
-                $this->sQuery->bindParam($parametersType ? intval($column) : ":" . $column, $this->parameters[$column]);
+                $this->sQuery->bindParam($parametersType ? intval($column) : ":".$column, $this->parameters[$column]);
             }
         }
 
@@ -105,14 +106,14 @@ class Database
     /**
      * Combines query text with parameters
      *
-     * @param string $query Role of query text
-     * @param array $params Role of query parameter
+     * @param  string  $query  Role of query text
+     * @param  array  $params  Role of query parameter
      *
      * @return string
      */
     private function buildParams($query, $params = array())
     {
-        if ( ! empty($params)) {
+        if (! empty($params)) {
             $arrayParameterFound = false;
 
             foreach ($params as $parameterKey => $parameter) {
@@ -120,14 +121,14 @@ class Database
                     $arrayParameterFound = true;
                     $in = "";
                     foreach ($parameter as $key => $value) {
-                        $namePlaceholder = $parameterKey . "_" . $key;
+                        $namePlaceholder = $parameterKey."_".$key;
                         // concatenates params as named placeholders
-                        $in .= ":" . $namePlaceholder . ", ";
+                        $in .= ":".$namePlaceholder.", ";
                         // adds each single parameter to $params
                         $params[$namePlaceholder] = $value;
                     }
                     $in = rtrim($in, ", ");
-                    $query = preg_replace("/:" . $parameterKey . "/", $in, $query);
+                    $query = preg_replace("/:".$parameterKey."/", $in, $query);
                     // removes array form $params
                     unset($params[$parameterKey]);
                 }

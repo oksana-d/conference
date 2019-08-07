@@ -4,7 +4,7 @@
             <h1 class="text-center">All members</h1>
         </div>
     </div>
-    <?php if (isset($users)): ?>
+    <?php if (isset($users)) : ?>
         <div class="row">
             <div class="col">
                 <div class="table-responsive text-nowrap">
@@ -19,7 +19,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($users as $key => $user): ?>
+                        <?php foreach ($users as $key => $user) : ?>
                             <tr>
                                 <td scope="row"><?= ++$key ?></td>
                                 <td>

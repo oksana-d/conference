@@ -10,7 +10,7 @@ class View
             extract($data);
         }
 
-        include 'src/application/views/' . $templateView;
+        include 'src/application/views/'.$templateView;
     }
 
     public function ajaxGenerate($contentView, $data = null)
@@ -19,6 +19,6 @@ class View
             extract($data);
         }
 
-        include 'src/application/views/' . $contentView;
+        include 'src/application/views/'.$contentView;
     }
 }
