@@ -44,7 +44,7 @@ class ControllerMain extends Controller
     public function updateUserInfoAction()
     {
         if ( ! empty(filter_input_array(INPUT_POST))) {
-            $config = require __DIR__ . '/../config/share_config.php';
+            $config = require __DIR__ . '/../../config/share_config.php';
             $this->model = new ModelMain();
             $target = null;
 
