@@ -3,14 +3,27 @@
 namespace src\application\models;
 
 use src\application\core\Model;
+use PDOStatement;
 
 class ModelMain extends Model
 {
+    /**
+     * Get count conference participants
+     *
+     * @return false|PDOStatement
+     */
     public function getCountUser()
     {
         return $this->conn->query("SELECT COUNT(idUser) as total FROM user");
     }
 
+    /**
+     * Check if a user is registered with this email
+     *
+     * @param string $email Role of user email
+     *
+     * @return boolean
+     */
     public function checkExistsEmail($email)
     {
         $executeQuery = $this->conn->query("SELECT COUNT(idUser) as total FROM user WHERE email =?", [$email])[0];
@@ -18,6 +31,13 @@ class ModelMain extends Model
         return $executeQuery['total'] > 0 ? true : false;
     }
 
+    /**
+     * Save user information from the first form
+     *
+     * @param array $data
+     *
+     * @return bool|string
+     */
     public function saveUserInfo($data)
     {
         $executeQuery = $this->conn->query("
@@ -40,6 +60,14 @@ class ModelMain extends Model
         }
     }
 
+    /**
+     * Update user information from the second form
+     *
+     * @param array $data
+     * @param string $img
+     *
+     * @return bool
+     */
     public function updateUserInfo($data, $img = null)
     {
         if ( ! empty(filter_input_array(INPUT_COOKIE)['idUser'])) {

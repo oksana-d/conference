@@ -7,7 +7,9 @@ use src\application\models\ModelMain;
 
 class ControllerMain extends Controller
 {
-
+    /**
+     * Show the first form
+     */
     public function indexAction()
     {
         $this->model = new ModelMain();
@@ -16,6 +18,9 @@ class ControllerMain extends Controller
         ]);
     }
 
+    /**
+     * Check if a user is registered with this email
+     */
     public function checkExistsEmailAction()
     {
         if (filter_has_var(INPUT_POST, 'email')) {
@@ -28,6 +33,9 @@ class ControllerMain extends Controller
         }
     }
 
+    /**
+     * Save user information from the first form
+     */
     public function saveUserInfoAction()
     {
         if ( ! empty(filter_input_array(INPUT_POST))) {
@@ -41,6 +49,9 @@ class ControllerMain extends Controller
         }
     }
 
+    /**
+     * Update user information from the second form
+     */
     public function updateUserInfoAction()
     {
         if ( ! empty(filter_input_array(INPUT_POST))) {

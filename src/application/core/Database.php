@@ -29,7 +29,16 @@ class Database
         return $this->pdo;
     }
 
-    public function query($query, $params = null, $fetchmode = PDO::FETCH_ASSOC)
+    /**
+     * Parse and execution call the query
+     *
+     * @param string $query Role of query text from model
+     * @param array $params Role of query parameter from model
+     * @param int $fetchmMode
+     *
+     * @return array|int|null
+     */
+    public function query($query, $params = null, $fetchmMode = PDO::FETCH_ASSOC)
     {
         $query = trim($query);
         $rawStatement = explode(" ", $query);
@@ -37,7 +46,7 @@ class Database
         $statement = strtolower($rawStatement[0]);
 
         if ($statement === 'select' || $statement === 'show') {
-            return $this->sQuery->fetchAll($fetchmode);
+            return $this->sQuery->fetchAll($fetchmMode);
         } else {
             if ($statement === 'insert' || $statement === 'update' || $statement === 'delete') {
                 return $this->sQuery->rowCount();
@@ -47,6 +56,12 @@ class Database
         }
     }
 
+    /**
+     * Execute the query
+     *
+     * @param string $query Role of query text
+     * @param array $parameters Role of query parameter
+     */
     private function init($query, $parameters)
     {
         if ( ! $this->bConnected) {
@@ -73,6 +88,11 @@ class Database
         $this->parameters = array();
     }
 
+    /**
+     * Connect to database
+     *
+     * @return PDO object
+     */
     public function connect()
     {
         if (self::$pdo === null) {
@@ -82,6 +102,14 @@ class Database
         return self::$pdo;
     }
 
+    /**
+     * Combines query text with parameters
+     *
+     * @param string $query Role of query text
+     * @param array $params Role of query parameter
+     *
+     * @return string
+     */
     private function buildParams($query, $params = array())
     {
         if ( ! empty($params)) {
@@ -93,18 +121,18 @@ class Database
                     $in = "";
                     foreach ($parameter as $key => $value) {
                         $namePlaceholder = $parameterKey . "_" . $key;
-
+                        // concatenates params as named placeholders
                         $in .= ":" . $namePlaceholder . ", ";
-
+                        // adds each single parameter to $params
                         $params[$namePlaceholder] = $value;
                     }
                     $in = rtrim($in, ", ");
                     $query = preg_replace("/:" . $parameterKey . "/", $in, $query);
-
+                    // removes array form $params
                     unset($params[$parameterKey]);
                 }
             }
-
+            // updates $this->params if $params and $query have changed
             if ($arrayParameterFound) {
                 $this->parameters = $params;
             }
@@ -113,37 +141,13 @@ class Database
         return $query;
     }
 
+    /**
+     * Get the id of the last inserted row
+     *
+     * @return string
+     */
     public function lastInsertId()
     {
         return $this->pdo->lastInsertId();
-    }
-
-    public function column($query, $params = null)
-    {
-        $this->init($query, $params);
-        $resultColumn = $this->sQuery->fetchAll(PDO::FETCH_COLUMN);
-        $this->sQuery->rowCount();
-        $this->sQuery->columnCount();
-        $this->sQuery->closeCursor();
-
-        return $resultColumn;
-    }
-
-    public function row($query, $params = null, $fetchMode = PDO::FETCH_ASSOC)
-    {
-        $this->init($query, $params);
-        $resultRow = $this->sQuery->fetch($fetchMode);
-        $this->sQuery->rowCount();
-        $this->sQuery->columnCount();
-        $this->sQuery->closeCursor();
-
-        return $resultRow;
-    }
-
-    public function single($query, $params = null)
-    {
-        $this->init($query, $params);
-
-        return $this->sQuery->fetchColumn();
     }
 }

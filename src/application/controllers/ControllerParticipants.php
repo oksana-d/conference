@@ -7,7 +7,9 @@ use src\application\models\ModelParticipants;
 
 class ControllerParticipants extends Controller
 {
-
+    /**
+     * Show all registered conference participants
+     */
     public function indexAction()
     {
         $this->model = new ModelParticipants();
