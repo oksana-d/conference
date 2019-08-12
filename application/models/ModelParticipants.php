@@ -1,8 +1,8 @@
 <?php
 
-namespace src\application\models;
+namespace application\models;
 
-use src\application\core\Model;
+use application\core\Model;
 use PDOStatement;
 
 class ModelParticipants extends Model

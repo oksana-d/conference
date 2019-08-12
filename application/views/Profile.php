@@ -48,7 +48,7 @@
     },
     submitHandler: function (form) {
       $.ajax({
-        url: '/main/updateUserInfo',
+        url: '/updateUserInfo',
         type: 'post',
         dataType: 'text',
         data: new FormData(form),
@@ -62,19 +62,4 @@
       })
     }
   })
-
-  function validate () {
-    $('body').on('change', '#photo', function () {
-
-      if (this.files[0].size > 2000000) {
-        $('#photo-size-error').html('File must be less than 2 mb.')
-        $('#submit').prop('disabled', true)
-      } else {
-        $('#submit').prop('disabled', false)
-        $('##photo-size-error').empty()
-      }
-    })
-  }
-
-  validate()
 </script>

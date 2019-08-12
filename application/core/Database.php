@@ -1,6 +1,6 @@
 <?php
 
-namespace src\application\core;
+namespace application\core;
 
 use PDO;
 
@@ -13,7 +13,7 @@ class Database
 
     private function __construct()
     {
-        $config = require __DIR__.'/../../config/database_config.php';
+        $config = require __DIR__.'/../config/database_config.php';
 
         $this->pdo = new PDO(
             'mysql:dbname='.$config['name'].';host='.$config['host'].';port='.$config['port'].';charset=utf8',

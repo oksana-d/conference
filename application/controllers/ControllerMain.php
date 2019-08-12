@@ -1,16 +1,16 @@
 <?php
 
-namespace src\application\controllers;
+namespace application\controllers;
 
-use src\application\core\Controller;
-use src\application\models\ModelMain;
+use application\core\Controller;
+use application\models\ModelMain;
 
 class ControllerMain extends Controller
 {
     /**
      * Show the first form
      */
-    public function indexAction()
+    public function index()
     {
         $this->model = new ModelMain();
         $this->view->generate('MainView.php', 'TemplateView.php', [
@@ -21,7 +21,7 @@ class ControllerMain extends Controller
     /**
      * Check if a user is registered with this email
      */
-    public function checkExistsEmailAction()
+    public function checkExistsEmail()
     {
         if (filter_has_var(INPUT_POST, 'email')) {
             $this->model = new ModelMain();
@@ -36,7 +36,7 @@ class ControllerMain extends Controller
     /**
      * Save user information from the first form
      */
-    public function saveUserInfoAction()
+    public function saveUserInfo()
     {
         if (! empty(filter_input_array(INPUT_POST))) {
             $this->model = new ModelMain();
@@ -52,10 +52,10 @@ class ControllerMain extends Controller
     /**
      * Update user information from the second form
      */
-    public function updateUserInfoAction()
+    public function updateUserInfo()
     {
         if (! empty(filter_input_array(INPUT_POST))) {
-            $config = require __DIR__.'/../../config/share_config.php';
+            $config = require __DIR__.'/../config/share_config.php';
             $this->model = new ModelMain();
             $target = null;
 

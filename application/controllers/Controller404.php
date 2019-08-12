@@ -1,15 +1,15 @@
 <?php
 
-namespace src\application\controllers;
+namespace application\controllers;
 
-use src\application\core\Controller;
+use application\core\Controller;
 
 class Controller404 extends Controller
 {
     /**
      * Show page 404
      */
-    public function indexAction()
+    public function index()
     {
         $this->view->generate('404.php', 'TemplateView.php');
     }

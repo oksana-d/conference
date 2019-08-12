@@ -1,6 +1,6 @@
 <?php
 
-namespace src\application\core;
+namespace application\core;
 
 abstract class Controller
 {
@@ -12,5 +12,5 @@ abstract class Controller
         $this->view = new View();
     }
 
-    abstract public function indexAction();
+    abstract public function index();
 }

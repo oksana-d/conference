@@ -1,6 +1,6 @@
 <?php
 
-namespace src\application\core;
+namespace application\core;
 
 class View
 {
@@ -10,7 +10,9 @@ class View
             extract($data);
         }
 
-        include 'src/application/views/'.$templateView;
+        include 'application/views/'.$templateView;
+        
+        
     }
 
     public function ajaxGenerate($contentView, $data = null)
@@ -19,6 +21,6 @@ class View
             extract($data);
         }
 
-        include 'src/application/views/'.$contentView;
+        include 'application/views/'.$contentView;
     }
 }

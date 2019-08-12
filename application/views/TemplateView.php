@@ -7,7 +7,7 @@
     <title>Conference</title>
 </head>
 <body>
-<?php include 'src/application/views/' . $contentView; ?>
+<?php include 'application/views/' . $contentView; ?>
 <link rel="stylesheet" type="text/css" href="/public/css/style.css"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css"
       rel="stylesheet"/>
