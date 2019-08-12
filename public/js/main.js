@@ -117,4 +117,10 @@
     }
   })
 
+  window.onload = function () {
+    $('#country').append("<option value=''></option>")
+    Object.keys(allCountry).forEach(function (key) {
+      $('#country').append("<option value='" + key + "'" + ">" + allCountry[key] + "</option>")
+    })
+  }
 })()

@@ -30,6 +30,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script src="/public/js/jquery.maskedinput.min.js" type="text/javascript"></script>
 
+<script src="/public/js/country.js" type="text/javascript"></script>
 <script src="/public/js/mask.js" type="text/javascript"></script>
 <script src="/public/js/main.js" type="text/javascript"></script>
 </body>
