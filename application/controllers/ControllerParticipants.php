@@ -13,7 +13,7 @@ class ControllerParticipants extends Controller
     public function index()
     {
         $this->model = new ModelParticipants();
-        $this->view->generate('ParticipantsView.php', 'TemplateView.php', [
+        $this->view->generate('ParticipantsView.php', [
             'users' => $this->model->getAllUsers(),
         ]);
     }

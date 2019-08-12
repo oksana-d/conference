@@ -1,3 +1,5 @@
+<?php require('partials/head.php'); ?>
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -44,3 +46,4 @@
         </div>
     </div>
 </div>
+<?php require('partials/footer.php'); ?>

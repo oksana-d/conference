@@ -13,7 +13,7 @@ class ControllerMain extends Controller
     public function index()
     {
         $this->model = new ModelMain();
-        $this->view->generate('MainView.php', 'TemplateView.php', [
+        $this->view->generate('MainView.php', [
             'countUser' => $this->model->getCountUser()[0],
         ]);
     }
@@ -42,7 +42,7 @@ class ControllerMain extends Controller
             $this->model = new ModelMain();
             if ($idUser = $this->model->saveUserInfo(filter_input_array(INPUT_POST))) {
                 setcookie("idUser", $idUser, 0, '/');
-                $this->view->ajaxGenerate('Profile.php', [
+                $this->view->generate('Profile.php', [
                     'countUser' => $this->model->getCountUser()[0],
                 ]);
             }
@@ -71,7 +71,7 @@ class ControllerMain extends Controller
             if ($this->model->updateUserInfo(filter_input_array(INPUT_POST), $target)) {
                 unset(filter_input_array(INPUT_COOKIE)['idUser']);
                 setcookie('idUser', null, -1, '/');
-                $this->view->ajaxGenerate('SocialNetworks.php', [
+                $this->view->generate('SocialNetworks.php', [
                     'countUser' => $this->model->getCountUser()[0],
                     'config'    => $config['share'],
                 ]);

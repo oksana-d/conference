@@ -1,3 +1,5 @@
+<?php require('partials/head.php'); ?>
+
 <div id="map"></div>
 <div class="container">
     <div class="card">
@@ -334,3 +336,5 @@
         </div>
     </div>
 </div>
+
+<?php require('partials/footer.php'); ?>
