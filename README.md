@@ -56,3 +56,5 @@
 
 1. [Установка Composer](https://getcomposer.org/doc/00-intro.md)
 2. [Установка зависимостей](https://getcomposer.org/doc/01-basic-usage.md)
+3. Создание бд MySQL ([дамп и схема бд](https://gitlab.albedo.dev/oksana.egoroca/conference/tree/master/sql))
+4. Создание конфигурационного файла для соединения с бд   `/application/config/database_config.php`  и  `/application/config/share_config..php` с адресом и текстом шарилки для TW ([примеры](https://gitlab.albedo.dev/oksana.egoroca/conference/tree/master/application/config))
